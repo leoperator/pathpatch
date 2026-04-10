@@ -1,22 +1,46 @@
+// components/ui/DashboardSidebar.tsx
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 export default function DashboardSidebar() {
+  const pathname = usePathname();
+
   return (
     <aside className="w-64 bg-surface-container-low flex flex-col border-r border-outline-variant/20 h-screen sticky top-0">
       <div className="p-6 flex flex-col gap-1">
-        <h1 className="text-primary font-headline font-extrabold text-xl tracking-tight">Logistics Pro</h1>
+        <h1 className="text-primary font-headline font-extrabold text-xl tracking-tight">PathPatch</h1>
         <p className="text-on-surface-variant font-label text-xs uppercase tracking-widest">System Admin</p>
       </div>
       <nav className="mt-4 flex-grow px-3 space-y-1">
-        <a className="flex items-center gap-3 px-3 py-3 bg-primary text-on-primary rounded-sm transition-all" href="#">
+        <Link
+          href="/"
+          className={`flex items-center gap-3 px-3 py-3 rounded-sm transition-all ${
+            pathname === "/"
+              ? "bg-primary text-on-primary"
+              : "text-on-surface-variant hover:bg-surface-container-high"
+          }`}
+        >
           <span className="material-symbols-outlined">dashboard</span>
           <span className="font-body text-sm font-medium">Dashboard</span>
-        </a>
-        <a className="flex items-center gap-3 px-3 py-3 text-on-surface-variant hover:bg-surface-container-high rounded-sm transition-all" href="#">
+        </Link>
+        <Link
+          href="/fleet-status"
+          className={`flex items-center gap-3 px-3 py-3 rounded-sm transition-all ${
+            pathname === "/fleet-status"
+              ? "bg-primary text-on-primary"
+              : "text-on-surface-variant hover:bg-surface-container-high"
+          }`}
+        >
           <span className="material-symbols-outlined">local_shipping</span>
           <span className="font-body text-sm font-medium">Fleet Status</span>
-        </a>
+        </Link>
       </nav>
       <div className="p-4 border-t border-outline-variant/20 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant"></div>
+        <div className="w-8 h-8 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center text-on-surface font-bold text-xs">
+          N
+        </div>
         <div className="flex flex-col">
           <span className="text-sm font-bold text-on-surface">Admin User</span>
           <span className="text-[10px] text-on-surface-variant">System Administrator</span>

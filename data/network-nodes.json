@@ -1,59 +1,33 @@
 {
   "hub": {
-    "id": "hub-alpha",
-    "name": "Central Dispatch Node",
-    "coordinates": [-73.935242, 40.730610]
+    "id": "hub-prime",
+    "name": "Central Dispatch",
+    "coordinates": [77.2090, 28.6139]
   },
   "routes": [
     {
-      "truckId": "trk-001",
+      "truckId": "trk-alpha",
       "destination": {
-        "name": "Sector One Facility",
-        "coordinates": [-73.985130, 40.758896]
+        "name": "Node Alpha",
+        "coordinates": [77.3910, 28.5355]
       },
-      "stops": [
-        {"name": "Checkpoint A", "coordinates": [-73.965000, 40.745000]}
-      ]
+      "stops": []
     },
     {
-      "truckId": "trk-002",
+      "truckId": "trk-beta",
       "destination": {
-        "name": "Sector Two Warehouse",
-        "coordinates": [-74.006000, 40.712800]
+        "name": "Node Beta",
+        "coordinates": [77.0266, 28.4595]
       },
-      "stops": [
-        {"name": "Checkpoint B", "coordinates": [-73.980000, 40.720000]}
-      ]
+      "stops": []
     },
     {
-      "truckId": "trk-003",
+      "truckId": "trk-gamma",
       "destination": {
-        "name": "Sector Three Outpost",
-        "coordinates": [-73.856077, 40.844781]
+        "name": "Node Gamma",
+        "coordinates": [77.4126, 28.6692]
       },
-      "stops": [
-        {"name": "Checkpoint C", "coordinates": [-73.900000, 40.800000]}
-      ]
-    },
-    {
-      "truckId": "trk-004",
-      "destination": {
-        "name": "Sector Four Depot",
-        "coordinates": [-73.996460, 40.605330]
-      },
-      "stops": [
-        {"name": "Checkpoint D", "coordinates": [-73.970000, 40.650000]}
-      ]
-    },
-    {
-      "truckId": "trk-005",
-      "destination": {
-        "name": "Sector Five Hub",
-        "coordinates": [-73.756232, 40.730610]
-      },
-      "stops": [
-        {"name": "Checkpoint E", "coordinates": [-73.850000, 40.730610]}
-      ]
+      "stops": []
     }
   ]
 }

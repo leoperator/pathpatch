@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
 export const metadata: Metadata = {
-  title: "Logistics Pro | Delivery Dashboard",
+  title: "PathPatch | Delivery Dashboard",
 };
 
 export default function RootLayout({
