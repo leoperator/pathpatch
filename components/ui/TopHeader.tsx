@@ -1,10 +1,15 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 export default function TopHeader({ title = "Delivery Dashboard" }: { title?: string }) {
   const [showNotifications, setShowNotifications] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <header className="h-16 bg-surface-container-lowest border-b border-outline-variant/20 flex items-center justify-between px-8 sticky top-0 z-50">
@@ -19,13 +24,24 @@ export default function TopHeader({ title = "Delivery Dashboard" }: { title?: st
       <div className="flex items-center gap-6 relative">
         <div className="flex items-center gap-4">
           
+          {/* Theme Toggle Button */}
+          {mounted && (
+            <button 
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-1 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center"
+            >
+              <span className="material-symbols-outlined">
+                {theme === 'dark' ? 'dark_mode' : 'light_mode'}
+              </span>
+            </button>
+          )}
+
           {/* Notification Button */}
           <button 
             onClick={() => setShowNotifications(!showNotifications)} 
-            className="relative p-1 text-on-surface-variant hover:text-primary transition-colors"
+            className="p-1 text-on-surface-variant hover:text-primary transition-colors flex items-center justify-center"
           >
             <span className="material-symbols-outlined">notifications</span>
-            <span className="absolute top-1 right-1 w-2 h-2 bg-error rounded-full border-2 border-surface-container-lowest"></span>
           </button>
 
           {/* Settings Link */}

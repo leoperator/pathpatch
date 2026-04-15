@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    *, ::before, ::after {
+    border-color: var(--outline-variant);
+  }
+  :root {
+    --background: #f8fafc;
+    --on-background: #0f172a;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f1f5f9;
+    --surface-container-high: #e2e8f0;
+    --surface-container-highest: #cbd5e1;
+    --on-surface: #0f172a;
+    --on-surface-variant: #475569;
+    --primary: #0f172a;
+    --on-primary: #ffffff;
+    --primary-container: #e2e8f0;
+    --on-primary-container: #0f172a;
+    --secondary: #006d35;
+    --error: #ef4444;
+    --on-error: #ffffff;
+    --error-container: #fee2e2;
+    --on-error-container: #991b1b;
+    --outline: #94a3b8;
+    --outline-variant: #cbd5e1;
+  }
+
+  .dark {
+    --background: #000000;
+    --on-background: #f5f5f5;
+    --surface-container-lowest: #0a0a0a;
+    --surface-container-low: #171717;
+    --surface-container-high: #262626;
+    --surface-container-highest: #404040;
+    --on-surface: #ffffff;
+    --on-surface-variant: #a3a3a3;
+    --primary: #ffffff;
+    --on-primary: #000000;
+    --primary-container: #262626;
+    --on-primary-container: #ffffff;
+    --secondary: #10b981;
+    --error: #f87171;
+    --on-error: #450a0a;
+    --error-container: #7f1d1d;
+    --on-error-container: #fecaca;
+    --outline: transparent;
+    --outline-variant: transparent;
+  }
+}

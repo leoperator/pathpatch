@@ -5,16 +5,21 @@ import Map, { Source, Layer } from 'react-map-gl/maplibre';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { useLogisticsStore } from '@/lib/store';
 import { fetchOSRMRoute } from '@/lib/route-fetching';
+import { useTheme } from 'next-themes';
 
 export default function MapDashboard() {
   const hub = useLogisticsStore((state) => state.hub);
   const routes = useLogisticsStore((state) => state.routes);
   const setRouteGeometry = useLogisticsStore((state) => state.setRouteGeometry);
+  const { theme } = useTheme();
 
-  // Fetch the routes when the component mounts
+  // Determine the map URL based on the current theme
+  const mapStyleUrl = theme === 'dark' 
+    ? "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json" 
+    : "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+
   useEffect(() => {
     routes.forEach(async (route) => {
-      // Only fetch if we haven't already saved the geometry
       if (!route.routeGeometry) {
         const geometry = await fetchOSRMRoute(hub.coordinates, route.destination.coordinates);
         if (geometry) {
@@ -33,7 +38,7 @@ export default function MapDashboard() {
           zoom: 10.5
         }}
         style={{ width: '100%', height: '100%' }}
-        mapStyle="https://basemaps.cartocdn.com/gl/positron-gl-style/style.json"
+        mapStyle={mapStyleUrl}
       >
         {routes.map((route) => (
           route.routeGeometry && (
